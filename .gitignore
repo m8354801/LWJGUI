@@ -88,3 +88,6 @@ Thumbs.db
 
 ### Docs ###
 docs/_build
+
+### IntelliJ
+.idea
