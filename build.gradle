@@ -10,8 +10,8 @@ plugins {
 }
 
 sourceCompatibility = "8"
-project.ext.lwjglVersion = "3.2.3"
-project.ext.jomlVersion = "1.9.20"
+project.ext.lwjglVersion = "3.3.3"
+project.ext.jomlVersion = "1.10.5"
 
 group = "org.lwjgui"
 version = "1.0.0-SNAPSHOT"
