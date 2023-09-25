@@ -60,37 +60,22 @@ dependencies {
 	api "org.lwjgl:lwjgl-tinyfd"
 
 	if (project.hasProperty("AllNatives")) {
-		runtimeOnly "org.lwjgl:lwjgl::natives-linux"
-		runtimeOnly "org.lwjgl:lwjgl-glfw::natives-linux"
-		runtimeOnly "org.lwjgl:lwjgl-jemalloc::natives-linux"
-		runtimeOnly "org.lwjgl:lwjgl-nanovg::natives-linux"
-		runtimeOnly "org.lwjgl:lwjgl-opengl::natives-linux"
-		runtimeOnly "org.lwjgl:lwjgl-stb::natives-linux"
-		runtimeOnly "org.lwjgl:lwjgl-tinyfd::natives-linux"
+		String[] allNatives = [
+			"natives-linux",
+			"natives-macos",
+			"natives-windows",
+			"natives-windows-x86"
+		];
 
-		runtimeOnly "org.lwjgl:lwjgl::natives-macos"
-		runtimeOnly "org.lwjgl:lwjgl-glfw::natives-macos"
-		runtimeOnly "org.lwjgl:lwjgl-jemalloc::natives-macos"
-		runtimeOnly "org.lwjgl:lwjgl-nanovg::natives-macos"
-		runtimeOnly "org.lwjgl:lwjgl-opengl::natives-macos"
-		runtimeOnly "org.lwjgl:lwjgl-stb::natives-macos"
-		runtimeOnly "org.lwjgl:lwjgl-tinyfd::natives-macos"
-
-		runtimeOnly "org.lwjgl:lwjgl::natives-windows"
-		runtimeOnly "org.lwjgl:lwjgl-glfw::natives-windows"
-		runtimeOnly "org.lwjgl:lwjgl-jemalloc::natives-windows"
-		runtimeOnly "org.lwjgl:lwjgl-nanovg::natives-windows"
-		runtimeOnly "org.lwjgl:lwjgl-opengl::natives-windows"
-		runtimeOnly "org.lwjgl:lwjgl-stb::natives-windows"
-		runtimeOnly "org.lwjgl:lwjgl-tinyfd::natives-windows"
-
-		runtimeOnly "org.lwjgl:lwjgl::natives-windows-x86"
-		runtimeOnly "org.lwjgl:lwjgl-glfw::natives-windows-x86"
-		runtimeOnly "org.lwjgl:lwjgl-jemalloc::natives-windows-x86"
-		runtimeOnly "org.lwjgl:lwjgl-nanovg::natives-windows-x86"
-		runtimeOnly "org.lwjgl:lwjgl-opengl::natives-windows-x86"
-		runtimeOnly "org.lwjgl:lwjgl-stb::natives-windows-x86"
-		runtimeOnly "org.lwjgl:lwjgl-tinyfd::natives-windows-x86"
+		allNatives.each {
+			runtimeOnly "org.lwjgl:lwjgl::$it"
+			runtimeOnly "org.lwjgl:lwjgl-glfw::$it"
+			runtimeOnly "org.lwjgl:lwjgl-jemalloc::$it"
+			runtimeOnly "org.lwjgl:lwjgl-nanovg::$it"
+			runtimeOnly "org.lwjgl:lwjgl-opengl::$it"
+			runtimeOnly "org.lwjgl:lwjgl-stb::$it"
+			runtimeOnly "org.lwjgl:lwjgl-tinyfd::$it"
+		}
 	} else {
 		runtimeOnly "org.lwjgl:lwjgl::$lwjglNatives"
 		runtimeOnly "org.lwjgl:lwjgl-glfw::$lwjglNatives"
